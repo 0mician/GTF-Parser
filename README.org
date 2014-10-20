@@ -1,4 +1,34 @@
-* GTF-Parser
+* What?
+These 2 scripts have been developed as part of an assignement for the
+Practicals of bioinformatics at the KU Leuven (Autumn 2014)
 
-details to come
+* GTF_Processing.sh
+** Purpose
+This script was developed to extract the following informations from a
+file respecting the [[http://www.ensembl.org/info/website/upload/gff.html][GTF Standard]]:
+
+- count the number of unique genes present in the file
+- count the number of exons for each genes (reverse and forward)
+- determine the gene with the most exons
+
+** Usage
+Make sure that the script is executable (chmod +x) and that you
+replace path_to_gtf_file with the correct path:
+
+#+BEGIN_SRC shell
+./GTF_Processing.sh path_to_gtf_file
+#+END_SRC
+
+* PDB_Retriever.sh
+** Purpose
+This script starts by retrieving unique [[http://proteopedia.org/wiki/index.php/PDB_identification_code][PDB Id]] related to aldehyde
+dehydrogenase structures in a fasta file (file: pdb_seqres.txt). Then,
+it proceeds to retrieve the IDs from the [[http://www.rcsb.org/pdb/static.do?p=download/http/index.html][RCBS website]] and saves them.
+
+** Usage
+Make sure that the script is executable (chmod +x) and that you
+replace path_to_gtf_file with the correct path:
+#+BEGIN_SRC shell
+./PDB_Retriever.sh path_to_pdb-IDs.txt
+#+END_SRC
 
