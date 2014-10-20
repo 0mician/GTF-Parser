@@ -21,6 +21,11 @@
 
 datafile=$1
 
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied! Please provide the GTF file name"
+    exit 1
+fi
+
 if [ ! -f $datafile ]; then
     echo "File not found, make sure you have entered the correct path"
     exit 1

@@ -19,13 +19,49 @@
 # See readme.org for help on script usage #
 ###########################################
 
-datafile="pdb_seqres.txt"
+datafile=$1
+pdb_dir=$2
 saved_ids="uniq_pdb_ids.txt"
-pdb_dir=$(mkdir dl_pdb)
+
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied! Please provide file name, and folder name"
+    exit 1
+fi
+
+if [ ! -f $1 ]; then
+    echo "The file $1 does not exist, please verify the path"
+    exit 1
+fi
+
+if [ ! -d $2 ]; then
+    mkdir $2
+fi
+
+# Collecting all unique IDs from the original sequence file
+
+echo "Collecting unique IDs from $datafile"
 
 cat $datafile | egrep -wi "ALDEHYDE.*DEHYDROGENASE" | cut -c2-5 | sort | uniq > $saved_ids
 
+# Retrieving the pdb files for each of the IDs
+
+echo "Downloading all files from server, this may take a while"
+
 while read line 
 do
-    curl http://www.rcsb.org/pdb/files/$line.pdb > $(pdb_dir)/$(line).pdb
+    curl http://www.rcsb.org/pdb/files/$line.pdb > $pdb_dir/$line.pdb
 done < $saved_ids
+
+# Removing files not related to HOMO SAPIENS
+
+echo "Removing files not related to HOMO SAPIENS"
+
+FILES=$pdb_dir/*
+for file in $FILES
+do
+    if ! grep --quiet "HOMO SAPIENS" $file; then
+        rm $file
+    fi
+done
+
+echo "Done!"

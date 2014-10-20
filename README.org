@@ -1,6 +1,6 @@
 * What?
 These 2 scripts have been developed as part of an assignement for the
-Practicals of bioinformatics at the KU Leuven (Autumn 2014)
+"Practicals of bioinformatics" class at the KU Leuven (Autumn 2014)
 
 * GTF_Processing.sh
 ** Purpose
@@ -32,6 +32,9 @@ it proceeds to retrieve the IDs from the [[http://www.rcsb.org/pdb/static.do?p=d
 Make sure that the script is executable (chmod +x) and that you
 replace path_to_gtf_file with the correct path:
 #+BEGIN_SRC shell
-./PDB_Retriever.sh path_to_pdb-IDs.txt
+./PDB_Retriever.sh path_to_pdb-seqres.txt folder
 #+END_SRC
 ** Example
+[[https://raw.githubusercontent.com/Milt0n/GTF-Parser/master/img/pdb_retrieval.png]]
+
+[[https://raw.githubusercontent.com/Milt0n/GTF-Parser/master/img/pdb_homosapiens.png]]
