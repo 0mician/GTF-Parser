@@ -19,6 +19,10 @@ replace path_to_gtf_file with the correct path:
 ./GTF_Processing.sh path_to_gtf_file
 #+END_SRC
 
+** Example
+#+BEGIN_SRC markdown
+![alt gtf_execution](https://raw.githubusercontent.com/Milt0n/GTF-Parser/master/img/gtf_exec.png)
+#+END_SRC
 * PDB_Retriever.sh
 ** Purpose
 This script starts by retrieving unique [[http://proteopedia.org/wiki/index.php/PDB_identification_code][PDB Id]] related to aldehyde
@@ -31,4 +35,7 @@ replace path_to_gtf_file with the correct path:
 #+BEGIN_SRC shell
 ./PDB_Retriever.sh path_to_pdb-IDs.txt
 #+END_SRC
-
+** Example
+#+BEGIN_SRC markdown
+![alt gtf_execution](https://raw.githubusercontent.com/Milt0n/GTF-Parser/master/img/gtf_exec.png)
+#+END_SRC

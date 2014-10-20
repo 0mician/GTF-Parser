@@ -21,9 +21,14 @@
 
 datafile=$1
 
+if [ ! -f $datafile ]; then
+    echo "File not found, make sure you have entered the correct path"
+    exit 1
+fi
+
 # Part 1: counting the number of genes in the human gff file
 
-echo -n "* Number of genes on $datafile (please wait for answer): "
+echo -n "* Number of genes on $datafile (please wait for result): "
 cat $datafile | grep -Po 'gene_id "\K.*?(?=")' | sort | uniq | wc -l
 
 # Part 2: Counting whether there are more exons on one strand than the other
